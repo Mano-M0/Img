@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acampamento da Juventude do Sínodo Local de Viana</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background: url('./field/img/WhatsApp\ Image\ 2025-01-29\ at\ 2.57.09\ PM.jpeg') no-repeat center center/cover;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        header h1 {
+            font-size: 3rem;
+        }
+        .imagem {
+            margin: 20px auto;
+            padding: 20px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .countdown {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .countdown h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .countdown #timer {
+            font-size: 1.5rem;
+            color: #ff6600;
+        }
+        .carousel {
+            display: flex;
+            overflow-x: auto;
+            gap: 10px;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .carousel img {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+            object-fit: cover;
+            text-align: center;
+        }
+        .footer {
+            background: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .footer marquee {
+            font-size: 1rem;
+        }
+        .link {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .link a {
+            color: #0066cc;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+        .link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Acampamento da Juventude do Sínodo Local de Viana</h1>
+    </header>
+
+    <div class="container">
+        <div class="countdown">
+            <h2>Preparem-se!</h2>
+            <p id="timer"></p>
+        </div>
+
+        <div class="carousel">
+            <img src="./field/img/participante1.jpeg" alt="Participante 1">
+            <img src="./field/img/participante2.jpeg" alt="Participante 2">
+            <img src="./field/img/participante3.jpeg" alt="Participante 3">
+            <img src="./field/img/participante4.jpg" alt="Participante 4">
+            <img src="./field/img/participante5.jpg" alt="Participante 5">
+            <img src="./field/img/participante6.jpg" alt="Participante 6">
+            <img src="./field/img/p7.jpg" alt="Participante 7">
+            <img src="./field/img/p8.jpg" alt="Participante 8">
+            <img src="./field/img/p9.jpg" alt="Participante 9">
+            <img src="./field/img/p10.jpg" alt="Participante 10">
+        </div>
+
+        <div class="link">
+            <a href="https://www.facebook.com/61558968033674/posts/122153329646298934/?substory_index=639138195109092&app=fbl" target="_blank">
+                Confira mais informações no Facebook
+            </a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <marquee>
+            Para mais informações, entre em contacto com a direção do seu Pastorado, Congregação, Ponto de Pregação ou deixe uma SMS na página da Sociedade de Jovens do Sínodo Local de Viana. "Acampamento da Juventude do Sínodo Local de Viana".
+        </marquee>
+    </div>
+
+    <script>
+        // Data alvo: 13 de fevereiro de 2025
+        const targetDate = new Date("February 13, 2025 00:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const timeDifference = targetDate - now;
+
+            // Cálculo de dias, horas, minutos e segundos
+            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+            // Exibe o tempo restante
+            document.getElementById("timer").innerHTML = `
+                Faltam: ${days} dias, ${hours} horas, ${minutes} minutos e ${seconds} segundos
+            `;
+
+            // Verifica se a contagem chegou ao fim
+            if (timeDifference <= 0) {
+                clearInterval(interval);
+                document.getElementById("timer").innerHTML = "O Acampamento começou! 🎉";
+            }
+        }
+
+        // Atualiza a contagem a cada segundo
+        const interval = setInterval(updateCountdown, 1000);
+        updateCountdown(); // Executa imediatamente para evitar atraso inicial
+    </script>
+</body>
+</html>
